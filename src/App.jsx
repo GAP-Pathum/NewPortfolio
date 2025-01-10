@@ -23,7 +23,7 @@ const App = () => {
 
     return (
         <div className="relative bg-black min-h-screen overflow-hidden">
-            <ParticlesBackground />
+        <ParticlesBackground />
             <div className="relative z-10">
                 <Landing />
                 <Myself />
