@@ -1,76 +1,112 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
-import face from '../assets/face.png';
 
-function Myself() {
-  const [ref1, inView1] = useInView({ triggerOnce: false, threshold: 0.2 });
-  const [ref2, inView2] = useInView({ triggerOnce: false, threshold: 0.2 });
-  const [ref3, inView3] = useInView({ triggerOnce: false, threshold: 0.2 });
+import badge1 from '../assets/badge1.png';
+import badge2 from '../assets/badge2.png';
+
+const Education = () => {
+  const [ref1, inView1] = useInView({ triggerOnce: true });
+  const [ref2, inView2] = useInView({ triggerOnce: true });
+  const [ref3, inView3] = useInView({ triggerOnce: true });
 
   return (
-    <div className="w-full h-screen flex flex-col justify-center items-center mx-auto p-4">
-      {/* Horizontal line with circles */}
-      <motion.div
-        ref={ref1}
-        className="flex items-center w-full flex-wrap mt-0"
-        initial={{ y: 50, opacity: 0 }}
-        animate={inView1 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        <hr className="bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-700 h-2 border-0 font-bold flex-1 min-w-[100px]" />
-        <motion.div className="flex justify-end items-center ml-2.5 flex-wrap">
-          <motion.div className="w-5 h-5 rounded-full bg-pink-500 mr-2.5" />
-          <motion.div className="w-5 h-5 rounded-full bg-purple-600" />
-        </motion.div>
-      </motion.div>
-
+    <div className="w-full flex flex-col justify-center items-center mx-auto p-4">
       {/* Heading */}
       <motion.h1
-        ref={ref2}
-        className="text-[8vw] md:text-[4vw] font-bold text-white text-left mt-5"
+        ref={ref1}
+        className="text-[8vw] md:text-[4vw] font-bold text-white"
         initial={{ y: 50, opacity: 0 }}
-        animate={inView2 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-        transition={{ duration: 0.5, delay: 1 }}
+        animate={inView1 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
       >
-        Who I Am ?
+        Education
       </motion.h1>
 
-      {/* Content section */}
-      <motion.div
-        ref={ref3}
-        className="flex flex-col md:flex-row items-center justify-center mt-2 w-full"
-        initial={{ y: 50, opacity: 0 }}
-        animate={inView3 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-        transition={{ duration: 0.5, delay: 1.5 }}
-      >
-        {/* Text section */}
-        <div className="md:w-1/2 p-4">
-          <p className="text-[4vw] md:text-[1.5vw] text-white text-left">
-            I am G.A.P. Pathum.<br />
-            I'm a web designer and developer based in MERN stack.
-          </p>
-          <p className="text-[4vw] md:text-[1.2vw] text-white text-left mt-6">
-            Enthusiastic Computing and Information Systems undergraduate with a passion for software development and innovation. Quick learner and adaptable team player, committed to solving complex problems and contributing to impactful projects. Focused on leveraging skills to advance in the tech industry and make a meaningful difference through technology.
-          </p>
-        </div>
+      <div className="flex flex-col items-left mt-8 w-full md:ml-60">
+        {/* Timeline */}
+        <div className="relative flex flex-col items-left w-full md:ml-10 mt-4">
+          {/* Line 1 */}
+          <motion.div
+            ref={ref2}
+            className="w-1 h-12 bg-gradient-to-b from-pink-500 via-purple-600 to-indigo-700 ml-8"
+            initial={{ y: 50, opacity: 0 }}
+            animate={inView2 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          ></motion.div>
 
-        {/* Image section */}
-        <motion.div
-          className="md:w-1/2 p-4 flex justify-center"
-          initial={{ y: 50, opacity: 0 }}
-          animate={inView3 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-          transition={{ duration: 0.5, delay: 2 }}
-        >
-          <img
-            src={face}
-            alt="face"
-            className="w-30 h-30 md:w-25 md:h-25 object-cover rounded-full mt-5 border-none opacity-75"
-          />
-        </motion.div>
-      </motion.div>
+          {/* Badge 1 and Tab */}
+          <motion.div
+            className="flex items-center justify-start w-full relative"
+            ref={ref2}
+            initial={{ y: 50, opacity: 0 }}
+            animate={inView2 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+          >
+            <motion.img
+              src={badge1}
+              alt="Badge 1"
+              className="w-16 h-16 z-10 rounded-full"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            />
+            <div className="flex flex-col ml-4 p-4">
+              <motion.span className="text-white font-bold">
+                2022 to Present
+              </motion.span>
+              <motion.span className="text-white">
+                BSc.(Hons) Computing and Information Systems<br />
+                Sabaragamuwa University of Sri Lanka
+              </motion.span>
+            </div>
+          </motion.div>
+
+          {/* Line 2 */}
+          <motion.div
+            ref={ref3}
+            className="w-1 h-12 bg-gradient-to-b from-pink-500 via-purple-600 to-indigo-700 ml-8"
+            initial={{ y: 50, opacity: 0 }}
+            animate={inView3 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.6 }}
+          ></motion.div>
+
+          {/* Badge 2 and Tab */}
+          <motion.div
+            className="flex items-center justify-start w-full relative"
+            ref={ref3}
+            initial={{ y: 50, opacity: 0 }}
+            animate={inView3 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+            transition={{ duration: 0.5, delay: 0.8 }}
+          >
+            <motion.img
+              src={badge2}
+              alt="Badge 2"
+              className="w-16 h-16 z-10 rounded-full"
+              whileHover={{ scale: 1.1 }}
+              transition={{ duration: 0.3 }}
+            />
+            <div className="flex flex-col ml-4 p-4">
+              <motion.span className="text-white font-bold">
+                2020
+              </motion.span>
+              <motion.span className="text-white">
+                G.C.E. Advanced Levels (Physics Stream)<br />
+                T.B.M. Herath National School - Ragala
+              </motion.span>
+            </div>
+          </motion.div>
+
+          {/* Line 3 */}
+          <motion.div
+            className="w-1 h-12 bg-gradient-to-b from-pink-500 via-purple-600 to-indigo-700 ml-8"
+            initial={{ y: 50, opacity: 0 }}
+            animate={inView3 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+            transition={{ duration: 0.5, delay: 1 }}
+          ></motion.div>
+        </div>
+      </div>
     </div>
   );
-}
+};
 
-export default Myself;
+export default Education;
