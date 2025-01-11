@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "tailwindcss/tailwind.css";
-import Loading from "./components/Loading"; // Ensure correct path
+import Loading from "./components/Loading"; 
+import Header from "./components/Header/Header"; 
 import Landing from "./pages/Landing";
 import Myself from "./components/Myself";
 import Education from "./components/Education";
@@ -24,8 +25,9 @@ const App = () => {
 
     return (
         <div className="relative bg-black min-h-screen overflow-hidden">
-            <ParticlesBackground />
+           
             <div className="relative z-10">
+                <Header />
                 <Landing />
                 <Myself />
                 <Education />

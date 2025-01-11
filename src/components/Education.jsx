@@ -6,9 +6,9 @@ import badge1 from '../assets/badge1.png';
 import badge2 from '../assets/badge2.png';
 
 const Education = () => {
-  const [ref1, inView1] = useInView({ triggerOnce: true });
-  const [ref2, inView2] = useInView({ triggerOnce: true });
-  const [ref3, inView3] = useInView({ triggerOnce: true });
+  const [ref1, inView1] = useInView();
+  const [ref2, inView2] = useInView();
+  const [ref3, inView3] = useInView();
 
   const fadeInVariants = {
     hidden: { y: 50, opacity: 0 },
@@ -29,7 +29,7 @@ const Education = () => {
           initial="hidden"
           animate={inView1 ? 'visible' : 'hidden'}
           variants={fadeInVariants}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.3, delay: 0.1 }}
         >
           Education
         </motion.h1>
@@ -43,7 +43,7 @@ const Education = () => {
             initial="hidden"
             animate={inView2 ? 'visible' : 'hidden'}
             variants={timelineLineVariants}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.3 }}
           ></motion.div>
 
           {/* Badge 1 and Tab */}
@@ -53,14 +53,14 @@ const Education = () => {
             initial="hidden"
             animate={inView2 ? 'visible' : 'hidden'}
             variants={fadeInVariants}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
           >
             <motion.img
               src={badge1}
               alt="Badge 1"
               className="w-16 h-16 z-10 rounded-full"
               whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
             />
             <div className="flex flex-col ml-4 p-4">
               <span className="text-white font-bold">2022 to Present</span>
@@ -77,7 +77,7 @@ const Education = () => {
             initial="hidden"
             animate={inView2 ? 'visible' : 'hidden'}
             variants={timelineLineVariants}
-            transition={{ duration: 0.6, delay: 0.2 }}
+            transition={{ duration: 0.3, delay: 0.1 }}
           ></motion.div>
 
           {/* Badge 2 and Tab */}
@@ -87,14 +87,14 @@ const Education = () => {
             initial="hidden"
             animate={inView3 ? 'visible' : 'hidden'}
             variants={fadeInVariants}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
           >
             <motion.img
               src={badge2}
               alt="Badge 2"
               className="w-16 h-16 z-10 rounded-full"
               whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
             />
             <div className="flex flex-col ml-4 p-4">
               <span className="text-white font-bold">2020</span>
@@ -111,7 +111,7 @@ const Education = () => {
             initial="hidden"
             animate={inView3 ? 'visible' : 'hidden'}
             variants={timelineLineVariants}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.3, delay: 0.2 }}
           ></motion.div>
 
           {/* Badge 3 and Tab */}
@@ -120,14 +120,14 @@ const Education = () => {
             initial="hidden"
             animate={inView3 ? 'visible' : 'hidden'}
             variants={fadeInVariants}
-            transition={{ duration: 0.5, delay: 0.6 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
           >
             <motion.img
               src={badge2}
               alt="Badge 2"
               className="w-16 h-16 z-10 rounded-full"
               whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.2 }}
             />
             <div className="flex flex-col ml-4 p-4">
               <span className="text-white font-bold">2016</span>
@@ -144,7 +144,7 @@ const Education = () => {
             initial="hidden"
             animate={inView3 ? 'visible' : 'hidden'}
             variants={timelineLineVariants}
-            transition={{ duration: 0.6, delay: 0.6 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
           ></motion.div>
         </div>
       </div>

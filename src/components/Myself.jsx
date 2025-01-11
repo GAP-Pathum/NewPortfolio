@@ -16,7 +16,7 @@ function Myself() {
         className="flex items-center w-full flex-wrap mt-0"
         initial={{ y: 50, opacity: 0 }}
         animate={inView1 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
+        transition={{ duration: 0.3, delay: 0.05 }}
       >
         <hr className="bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-700 h-2 border-0 font-bold flex-1 min-w-[100px]" />
         <motion.div className="flex justify-end items-center ml-2.5 flex-wrap">
@@ -31,7 +31,7 @@ function Myself() {
         className="text-[8vw] md:text-[4vw] font-bold text-white text-left mt-5"
         initial={{ y: 50, opacity: 0 }}
         animate={inView2 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-        transition={{ duration: 0.5, delay: 1 }}
+        transition={{ duration: 0.3, delay: 0.1 }}
       >
         Who I Am ?
       </motion.h1>
@@ -42,7 +42,7 @@ function Myself() {
         className="flex flex-col md:flex-row items-center justify-center mt-2 w-full"
         initial={{ y: 50, opacity: 0 }}
         animate={inView3 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-        transition={{ duration: 0.5, delay: 1.5 }}
+        transition={{ duration: 0.3, delay: 0.2 }}
       >
         {/* Text section */}
         <div className="md:w-1/2 p-4">
@@ -60,7 +60,7 @@ function Myself() {
           className="md:w-1/2 p-4 flex justify-center"
           initial={{ y: 50, opacity: 0 }}
           animate={inView3 ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
-          transition={{ duration: 0.5, delay: 2 }}
+          transition={{ duration: 0.3, delay: 0.25 }}
         >
           <img
             src={face}
