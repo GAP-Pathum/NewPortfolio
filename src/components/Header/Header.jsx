@@ -12,7 +12,7 @@ const Header = () => {
 
         return (
 
-            <div className='header flex items-center w-full p-4 relative shadow-lg'>
+            <div className='header flex items-center w-full p-4 relative shadow-lg z-10'>
                 <img src={logo} alt='logo' className='mr-4 w-20 h-20' />
                 <div className='ml-auto flex flex-col justify-between w-8 h-8 cursor-pointer' onClick={toggleMenu}>
                 {menuOpen ? <FaTimes className='text-white' /> : <FaBars className='text-white' size={30} />}
