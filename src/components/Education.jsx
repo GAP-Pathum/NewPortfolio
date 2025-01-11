@@ -21,21 +21,21 @@ const Education = () => {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center mx-auto p-4">
+    <div className="w-full flex flex-col mx-auto p-4">
       {/* Heading */}
-      <motion.h1
-        ref={ref1}
-        className="text-[8vw] md:text-[4vw] font-bold text-white"
-        initial="hidden"
-        animate={inView1 ? 'visible' : 'hidden'}
-        variants={fadeInVariants}
-        transition={{ duration: 0.5, delay: 0.3 }}
-      >
-        Education
-      </motion.h1>
+        <motion.h1
+          ref={ref1}
+          className="text-[8vw] md:text-[4vw] font-bold text-white w-full ml-[12%]"
+          initial="hidden"
+          animate={inView1 ? 'visible' : 'hidden'}
+          variants={fadeInVariants}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          Education
+        </motion.h1>
 
-      <div className="flex flex-col items-left mt-8 w-full md:ml-60">
-        {/* Timeline */}
+        <div className="flex flex-col items-left mt-8 w-full md:ml-60">
+          {/* Timeline */}
         <div className="relative flex flex-col items-left w-full md:ml-10 mt-4">
           {/* Line 1 */}
           <motion.div
