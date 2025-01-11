@@ -1,19 +1,18 @@
 import React from 'react';
-import Header from '../components/Header/Header';
 import profimg from '../assets/profile.png';
 import { motion } from 'framer-motion';
 
 function Landing({ scrollToMyself }) {
     return (
         <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
+            initial={{ opacity: 0, translateY: '10%' }}
+            animate={{ opacity: 1, translateY: '-8%' }}
             transition={{ duration: 1 }}
             className="min-h-screen flex flex-col items-center justify-center mx-auto p-4"
+            style={{ height: '100vh' }}
         >
-            <Header />
             <motion.div
-                className="p-1 bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-700 rounded-full w-48 h-48 overflow-hidden mt-10 hover:shadow-[0_0_15px_6px_rgba(128,90,213,0.7),0_0_25px_10px_rgba(59,130,246,0.7)] transition-shadow duration-300"
+                className="p-1 mb-6 bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-700 rounded-full w-48 h-48 overflow-hidden hover:shadow-[0_0_15px_6px_rgba(128,90,213,0.7),0_0_25px_10px_rgba(59,130,246,0.7)] transition-shadow duration-300"
                 initial={{ scale: 0 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 0.5 }}
@@ -25,7 +24,7 @@ function Landing({ scrollToMyself }) {
                 />
             </motion.div>
             <motion.h2
-                className="text-white text-center text-2xl font-bold mt-4"
+                className="text-white text-center text-2xl font-bold"
                 initial={{ y: -50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 0.5 }}
@@ -82,7 +81,7 @@ function Landing({ scrollToMyself }) {
             </motion.div>
 
             <motion.div
-                className="flex flex-col md:flex-row justify-center mt-8 gap-10"
+                className="flex flex-col md:flex-row justify-center mt-10 md:mt-4 gap-4 md:gap-10"
                 initial={{ y: 50, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ duration: 0.5, delay: 1.5 }}
