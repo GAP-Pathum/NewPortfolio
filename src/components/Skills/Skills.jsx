@@ -15,7 +15,7 @@ function Skills() {
 
       
     return (
-        <div className= "w-full flex flex-col justify-center items-center mx-auto p-4">
+        <div className= "w-full h-screen flex flex-col justify-center items-center mx-auto p-4">
         <motion.h1
         ref={ref1}
         className="items-center text-[8vw] md:text-[4vw] font-bold text-white"

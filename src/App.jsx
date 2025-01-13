@@ -6,6 +6,8 @@ import Landing from "./pages/Landing";
 import Myself from "./components/Myself";
 import Education from "./components/Education";
 import Skills from "./components/Skills/Skills";
+import Projects from "./components/Projects";
+import Contact from "./components/Contact";
 import ParticlesBackground from "./components/ParticlesBackground";
 
 const App = () => {
@@ -25,13 +27,15 @@ const App = () => {
 
     return (
         <div className="relative bg-black min-h-screen overflow-hidden">
-           <ParticlesBackground />
+        <ParticlesBackground />
             <div className="relative z-10">
                 <Header />
                 <Landing />
                 <Myself />
                 <Education />
                 <Skills />
+                <Projects />
+                <Contact />
             </div>
         </div>
     );
