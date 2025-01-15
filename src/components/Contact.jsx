@@ -12,6 +12,7 @@ const Contact = () => {
     const [ref1, inView1] = useInView();
 
     return (
+        <section id="contact" className="w-full h-screen flex flex-col justify-center items-center mx-auto p-4">
         <div className="flex flex-col items-center h-screen mb-10">
             <motion.h1
                 ref={ref1}
@@ -24,7 +25,7 @@ const Contact = () => {
                 Contact Me
             </motion.h1>
             <div className="flex flex-col md:flex-row items-center justify-center min-h-screen bg-transparent max-w-screen-lg mx-auto">
-                <div className="flex flex-col md:flex-row items-start justify-between w-full space-y-8 md:space-y-0 md:space-x-8">
+                <div className="flex flex-col md:flex-row items-center justify-center w-full space-y-8 md:space-y-0 md:space-x-8">
                     <form className="bg-transparent p-8 rounded-lg shadow-lg w-full md:w-1/2" style={{ boxShadow: '0 0 15px 6px rgba(128,90,213,0.7), 0 0 25px 10px rgba(59,130,246,0.7)' }}>
                         <h2 className="text-2xl font-bold mb-6 text-white">Contact Me</h2>
                         <label className="block text-white mb-2">Name</label>
@@ -36,12 +37,12 @@ const Contact = () => {
                         <button type="submit" className="w-full p-2 rounded bg-gradient-to-r from-purple-500 to-blue-500 text-white">Send</button>
                     </form>
 
-                    <div className="ml-8 text-center text-white w-full md:w-1/2">
+                    <div className="text-center text-white w-full md:w-1/2 md:text-left">
                         <h2 className="text-2xl font-bold mb-4">Contact Information</h2>
                         <p>Email: pathumpasindu41@gmail.com</p>
                         <p>Phone: 075 29 55 301</p>
                         <p>Location: Sri Lanka</p>
-                        <div className="flex justify-center mt-4 space-x-4"></div>
+                        <div className="flex justify-center mt-4 space-x-4">
                             <a href="#" className="text-white"><i className="fab fa-facebook-f"></i></a>
                             <a href="#" className="text-white"><i className="fab fa-twitter"></i></a>
                             <a href="#" className="text-white"><i className="fab fa-linkedin-in"></i></a>
@@ -50,7 +51,8 @@ const Contact = () => {
                     </div>
                 </div>
             </div>
-
+        </div>
+        </section>
     );
 };
 

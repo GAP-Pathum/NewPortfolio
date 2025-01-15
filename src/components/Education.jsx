@@ -9,6 +9,7 @@ const Education = () => {
   const [ref1, inView1] = useInView();
   const [ref2, inView2] = useInView();
   const [ref3, inView3] = useInView();
+  const [ref4, inView4] = useInView();
 
   const fadeInVariants = {
     hidden: { y: 50, opacity: 0 },
@@ -29,7 +30,7 @@ const Education = () => {
           initial="hidden"
           animate={inView1 ? 'visible' : 'hidden'}
           variants={fadeInVariants}
-          transition={{ duration: 0.3, delay: 0.1 }}
+          transition={{ duration: 0.2, ease: "easeInOut" }}
         >
           Education
         </motion.h1>
@@ -43,41 +44,41 @@ const Education = () => {
             initial="hidden"
             animate={inView2 ? 'visible' : 'hidden'}
             variants={timelineLineVariants}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.2, ease: "easeInOut" }}
           ></motion.div>
 
           {/* Badge 1 and Tab */}
-          <motion.div
-            ref={ref2}
-            className="flex items-center justify-start w-full relative"
-            initial="hidden"
-            animate={inView2 ? 'visible' : 'hidden'}
-            variants={fadeInVariants}
-            transition={{ duration: 0.3, delay: 0.1 }}
-          >
-            <motion.img
-              src={badge1}
-              alt="Badge 1"
-              className="w-16 h-16 z-10 rounded-full"
-              whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.2 }}
-            />
-            <div className="flex flex-col ml-4 p-4">
-              <span className="text-white font-bold">2022 to Present</span>
-              <span className="text-white">
-                BSc.(Hons) Computing and Information Systems<br />
-                Sabaragamuwa University of Sri Lanka
-              </span>
-            </div>
-          </motion.div>
+                <motion.div
+                ref={ref2}
+                className="flex items-center justify-start w-full relative"
+                initial="hidden"
+                animate={inView2 ? 'visible' : 'hidden'}
+                variants={fadeInVariants}
+                transition={{ duration: 0.2, ease: "easeInOut", delay: 0.1 }}
+                >
+                <motion.img
+                  src={badge1}
+                  alt="Badge 1"
+                  className="w-16 h-16 z-10 rounded-full bg-opacity-10 backdrop-blur-md"
+                  whileHover={{ scale: 1.1 }}
+                  transition={{ duration: 0.2, ease: "easeInOut" }}
+                />
+                <div className="flex flex-col ml-4 p-4 bg-opacity-10 backdrop-blur-md rounded-lg">
+                  <span className="text-white font-bold">2022 to Present</span>
+                  <span className="text-white">
+                  BSc.(Hons) Computing and Information Systems<br />
+                  Sabaragamuwa University of Sri Lanka
+                  </span>
+                </div>
+                </motion.div>
 
-          {/* Line 2 */}
+                {/* Line 2 */}
           <motion.div
             className="w-1 h-12 bg-gradient-to-b from-pink-500 via-purple-600 to-indigo-700 ml-8"
             initial="hidden"
             animate={inView2 ? 'visible' : 'hidden'}
             variants={timelineLineVariants}
-            transition={{ duration: 0.3, delay: 0.1 }}
+            transition={{ duration: 0.2, ease: "easeInOut", delay: 0.1 }}
           ></motion.div>
 
           {/* Badge 2 and Tab */}
@@ -87,16 +88,16 @@ const Education = () => {
             initial="hidden"
             animate={inView3 ? 'visible' : 'hidden'}
             variants={fadeInVariants}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            transition={{ duration: 0.2, ease: "easeInOut", delay: 0.2 }}
           >
             <motion.img
               src={badge2}
               alt="Badge 2"
-              className="w-16 h-16 z-10 rounded-full"
+              className="w-16 h-16 z-10 rounded-full bg-opacity-10 backdrop-blur-md"
               whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
             />
-            <div className="flex flex-col ml-4 p-4">
+            <div className="flex flex-col ml-4 p-4 bg-opacity-10 backdrop-blur-md rounded-lg">
               <span className="text-white font-bold">2020</span>
               <span className="text-white">
                 G.C.E. Advanced Levels (Physics Stream)<br />
@@ -111,25 +112,26 @@ const Education = () => {
             initial="hidden"
             animate={inView3 ? 'visible' : 'hidden'}
             variants={timelineLineVariants}
-            transition={{ duration: 0.3, delay: 0.2 }}
+            transition={{ duration: 0.2, ease: "easeInOut", delay: 0.2 }}
           ></motion.div>
 
           {/* Badge 3 and Tab */}
           <motion.div
+          ref={ref4}
             className="flex items-center justify-start w-full relative"
             initial="hidden"
             animate={inView3 ? 'visible' : 'hidden'}
             variants={fadeInVariants}
-            transition={{ duration: 0.3, delay: 0.3 }}
+            transition={{ duration: 0.2, ease: "easeInOut", delay: 0.3 }}
           >
             <motion.img
               src={badge2}
               alt="Badge 2"
-              className="w-16 h-16 z-10 rounded-full"
+              className="w-16 h-16 z-10 rounded-full bg-opacity-10 backdrop-blur-md"
               whileHover={{ scale: 1.1 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.2, ease: "easeInOut" }}
             />
-            <div className="flex flex-col ml-4 p-4">
+            <div className="flex flex-col ml-4 p-4 bg-opacity-10 backdrop-blur-md rounded-lg">
               <span className="text-white font-bold">2016</span>
               <span className="text-white">
                 G.C.E. Ordinary Levels<br />
@@ -144,7 +146,7 @@ const Education = () => {
             initial="hidden"
             animate={inView3 ? 'visible' : 'hidden'}
             variants={timelineLineVariants}
-            transition={{ duration: 0.3, delay: 0.3 }}
+            transition={{ duration: 0.2, ease: "easeInOut", delay: 0.3 }}
           ></motion.div>
         </div>
       </div>
