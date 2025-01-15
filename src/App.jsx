@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import "tailwindcss/tailwind.css";
 import Loading from "./components/Loading"; 
 import Header from "./components/Header/Header"; 
-import Landing from "./pages/Landing";
+import Landing from "./components/Landing";
 import Myself from "./components/Myself";
 import Education from "./components/Education";
-import Skills from "./components/Skills/Skills";
-import Projects from "./components/Projects";
+import Skills from "./components/Skills";
+import Projects from "./components/Projects"
 import Contact from "./components/Contact";
 import ParticlesBackground from "./components/ParticlesBackground";
 
@@ -17,7 +17,7 @@ const App = () => {
         // Simulate loading process
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 1500); // Adjust time as needed (3 seconds here)
+        }, 1500); 
         return () => clearTimeout(timer); // Cleanup timeout
     }, []);
 

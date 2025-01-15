@@ -1,6 +1,6 @@
 import React from 'react'
-import { skillsData } from '../../assets/skills/skillsData'
-import { skillsImage } from '../../assets/skills/skillsImage'
+import { skillsData } from '../assets/skills/skillsData'
+import { skillsImage } from '../assets/skills/skillsImage'
 import Marquee from "react-fast-marquee";
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
@@ -15,6 +15,7 @@ function Skills() {
 
       
     return (
+        <section id="skills" className="w-full h-screen flex flex-col justify-center items-center mx-auto p-4">
         <div className= "w-full h-screen flex flex-col justify-center items-center mx-auto p-4">
         <motion.h1
         ref={ref1}
@@ -54,6 +55,7 @@ function Skills() {
                         </div>
                 </div>
         </div>
+        </section>
     )
 }
 

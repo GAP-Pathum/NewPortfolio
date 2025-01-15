@@ -9,6 +9,7 @@ function Myself() {
   const [ref3, inView3] = useInView({ triggerOnce: false, threshold: 0.2 });
 
   return (
+    <section id="myself" className="w-full h-screen flex flex-col justify-center items-center mx-auto p-4">
     <div className="w-full h-screen flex flex-col justify-center items-center mx-auto p-4">
       {/* Horizontal line with circles */}
       <motion.div
@@ -45,7 +46,7 @@ function Myself() {
         transition={{ duration: 0.3, delay: 0.2 }}
       >
         {/* Text section */}
-        <div className="md:w-1/2 p-4">
+        <div className="md:w-1/2 p-4bg-opacity-10 backdrop-blur-md rounded-lg">
           <p className="text-[4vw] md:text-[1.5vw] text-white text-left">
             I am G.A.P. Pathum.<br />
             I'm a web designer and developer based in MERN stack.
@@ -70,6 +71,7 @@ function Myself() {
         </motion.div>
       </motion.div>
     </div>
+    </section>
   );
 }
 
