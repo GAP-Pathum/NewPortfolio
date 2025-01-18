@@ -25,7 +25,7 @@ function Skills() {
         variants={fadeInVariants}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        Skills
+        Tech Stacks
       </motion.h1>
 
                 <div className="flex items-center justify-center w-full mt-14 px-8">

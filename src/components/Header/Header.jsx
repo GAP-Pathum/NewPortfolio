@@ -26,7 +26,7 @@ const Header = () => {
                 <nav className='flex flex-col items-center space-y-4'>
                     <img src={logo} alt='logo' className='w-20 h-20' />
                     <a href='#myself' className='text-white text-2xl hover:underline' onClick={(e) => { e.preventDefault(); document.getElementById('myself').scrollIntoView({ behavior: 'smooth' }); toggleMenu(); }}>Myself</a>
-                    <a href='#skills' className='text-white text-2xl hover:underline' onClick={(e) => { e.preventDefault(); document.getElementById('skills').scrollIntoView({ behavior: 'smooth' }); toggleMenu(); }}>Skills</a>
+                    <a href='#skills' className='text-white text-2xl hover:underline' onClick={(e) => { e.preventDefault(); document.getElementById('skills').scrollIntoView({ behavior: 'smooth' }); toggleMenu(); }}>TechStacks</a>
                     <a href='#projects' className='text-white text-2xl hover:underline' onClick={(e) => { e.preventDefault(); document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); toggleMenu(); }}>Projects</a>
                     <a href='#contact' className='text-white text-2xl hover:underline' onClick={(e) => { e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); toggleMenu(); }}>Contact</a>
                 </nav>
