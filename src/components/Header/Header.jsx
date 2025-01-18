@@ -10,7 +10,7 @@ const Header = () => {
     };
 
     return (
-        <header className='header flex items-center w-full p-4 relative shadow-lg z-10'>
+        <header className='header flex fixed items-center w-full p-4 relative shadow-lg z-10'>
             <img src={logo} alt='logo' className='mr-4 w-20 h-20' />
             <div className='ml-auto flex flex-col justify-between w-8 h-8 cursor-pointer' onClick={toggleMenu}>
                 {menuOpen ? <FaTimes className='text-white' size={30} /> : <FaBars className='text-white' size={30} />}
@@ -26,7 +26,7 @@ const Header = () => {
                 <nav className='flex flex-col items-center space-y-4'>
                     <img src={logo} alt='logo' className='w-20 h-20' />
                     <a href='#myself' className='text-white text-2xl hover:underline' onClick={(e) => { e.preventDefault(); document.getElementById('myself').scrollIntoView({ behavior: 'smooth' }); toggleMenu(); }}>Myself</a>
-                    <a href='#skills' className='text-white text-2xl hover:underline' onClick={(e) => { e.preventDefault(); document.getElementById('skills').scrollIntoView({ behavior: 'smooth' }); toggleMenu(); }}>Skills</a>
+                    <a href='#skills' className='text-white text-2xl hover:underline' onClick={(e) => { e.preventDefault(); document.getElementById('skills').scrollIntoView({ behavior: 'smooth' }); toggleMenu(); }}>TechStacks</a>
                     <a href='#projects' className='text-white text-2xl hover:underline' onClick={(e) => { e.preventDefault(); document.getElementById('projects').scrollIntoView({ behavior: 'smooth' }); toggleMenu(); }}>Projects</a>
                     <a href='#contact' className='text-white text-2xl hover:underline' onClick={(e) => { e.preventDefault(); document.getElementById('contact').scrollIntoView({ behavior: 'smooth' }); toggleMenu(); }}>Contact</a>
                 </nav>
