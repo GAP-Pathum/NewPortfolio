@@ -12,7 +12,7 @@ const Projects = () => {
     const [ref1, inView1] = useInView();
 
     return (
-        <section id="projects" className="h-screen w-full flex flex-col justify-center items-center p-4">
+        <section id="projects" className="h-screen w-full flex flex-col justify-center items-center p-4 my-8">
             <motion.h1
                 ref={ref1}
                 className="text-[8vw] md:text-[4vw] font-bold text-white"
@@ -43,7 +43,6 @@ const Projects = () => {
                     </motion.div>
                 ))}
             </div>
-          
         </section>
     );
 };
