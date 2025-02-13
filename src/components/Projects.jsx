@@ -43,6 +43,16 @@ const Projects = () => {
                     </motion.div>
                 ))}
             </div>
+            <motion.div
+                className="mt-8"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.5 }}
+            >
+                <button className="button-primary group">
+                    <span className="group-hover:bg-opacity-0">See More</span>
+                </button>
+            </motion.div>
         </section>
     );
 };
