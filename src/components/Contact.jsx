@@ -38,7 +38,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="min-h-screen w-full flex flex-col justify-center items-center p-6">
+        <section id="contact" className="min-h-screen w-full flex flex-col justify-center items-center p-6 mt-20">
             <motion.h1
                 ref={ref1}
                 className="text-4xl font-bold text-white mb-10"

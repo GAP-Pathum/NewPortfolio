@@ -1,14 +1,16 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense, lazy } from "react";
 import "tailwindcss/tailwind.css";
-import Loading from "./components/Loading"; 
-import Header from "./components/Header/Header"; 
-import Landing from "./components/Landing";
-import Myself from "./components/Myself";
-import Education from "./components/Education";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects"
-import Contact from "./components/Contact";
+import Loading from "./components/Loading";
 import ParticlesBackground from "./components/ParticlesBackground";
+
+// Lazy load components to reduce the initial bundle size
+const Header = lazy(() => import("./components/Header/Header"));
+const Landing = lazy(() => import("./components/Landing"));
+const Myself = lazy(() => import("./components/Myself"));
+const Education = lazy(() => import("./components/Education"));
+const Skills = lazy(() => import("./components/Skills"));
+const Projects = lazy(() => import("./components/Projects"));
+const Contact = lazy(() => import("./components/Contact"));
 
 const App = () => {
     const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +19,7 @@ const App = () => {
         // Simulate loading process
         const timer = setTimeout(() => {
             setIsLoading(false);
-        }, 1500); 
+        }, 100); // Reduced timeout for quicker feedback
         return () => clearTimeout(timer); // Cleanup timeout
     }, []);
 
@@ -27,15 +29,18 @@ const App = () => {
 
     return (
         <div className="relative bg-black min-h-screen overflow-hidden">
-        <ParticlesBackground />
+            <ParticlesBackground />
             <div className="relative z-10">
-                <Header />
-                <Landing />
-                <Myself />
-                <Education />
-                <Skills />
-                <Projects />
-                <Contact />
+                {/* Use React Suspense for lazy-loaded components */}
+                <Suspense fallback={<Loading />}>
+                    <Header />
+                    <Landing />
+                    <Myself />
+                    <Education />
+                    <Skills />
+                    <Projects />
+                    <Contact />
+                </Suspense>
             </div>
         </div>
     );

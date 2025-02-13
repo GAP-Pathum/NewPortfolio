@@ -32,7 +32,7 @@ return (
             events: {
                 onClick: {
                     enable: true,
-                    mode: "push",
+                    mode: "pull",
                 },
                 onHover: {
                     enable: true,
