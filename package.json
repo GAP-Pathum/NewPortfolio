@@ -14,6 +14,7 @@
     "@tsparticles/react": "^3.0.0",
     "emailjs-com": "^3.2.0",
     "framer-motion": "^11.16.2",
+    "lucide-react": "^0.477.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-fast-marquee": "^1.6.5",

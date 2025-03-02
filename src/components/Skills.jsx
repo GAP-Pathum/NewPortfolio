@@ -28,7 +28,7 @@ function Skills() {
         Tech Stacks
       </motion.h1>
 
-                <div className="flex items-center justify-center w-full mt-14 px-8">
+                <div className="flex flex-col items-center justify-center w-full mt-14 px-8">
                         <div className="w-full mx-8">
                                 <Marquee 
                                         gradient={true} 
@@ -53,7 +53,33 @@ function Skills() {
                                         ))}
                                 </Marquee>
                         </div>
-                </div>
+                
+                <div className="w-full mx-8">
+                                <Marquee 
+                                        gradient={true} 
+                                        gradientColor={[0, 0, 0]} 
+                                        speed={80} 
+                                        pauseOnHover={true}
+                                        pauseOnClick={true} 
+                                        delay={0}
+                                        play={true} 
+                                        direction="right"
+                                >
+                                        {skillsData.map((skill, id) => (
+                                                <div 
+                                                        className="shadow-lg rounded-lg w-40 h-40 m-6 flex flex-col items-center justify-center p-8 transition-transform duration-300 ease-in-out hover:scale-115 bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-700 overflow-hidden mt-10 hover:shadow-[0_0_15px_6px_rgba(128,90,213,0.7),0_0_25px_10px_rgba(59,130,246,0.7)]" 
+                                                        key={id}
+                                                >
+                                                        <img src={skillsImage(skill)} alt={skill} className="h-12 pointer-events-none" />
+                                                        <h3 className="font-big-shoulders-text font-medium text-lg text-center mt-4 text-white">
+                                                                {skill}
+                                                        </h3>
+                                                </div>
+                                        ))}
+                                </Marquee>
+                        </div>
+
+                        </div>
         </div>
         </section>
     )

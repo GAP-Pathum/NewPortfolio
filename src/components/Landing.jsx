@@ -91,7 +91,7 @@ function Landing({ scrollToMyself }) {
                     <FaLinkedin className="w-8 h-8" />
                 </a>
                 <a
-                    href="https://www.linkedin.com/in/pasindu-pathum-98a299249/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+                    href="https://www.instagram.com/g_a_p_pathum/profilecard/?igsh=MXVuNXQ1eXY0NjBkMA=="
                     target="_blank"
                     rel="noopener noreferrer"
                     className="hover:scale-110 transition-transform duration-300 text-white"
