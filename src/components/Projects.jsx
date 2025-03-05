@@ -38,7 +38,7 @@ const Projects = () => {
     };
 
     return (
-        <section id="projects" className="h-screen w-full flex flex-col justify-center items-center p-4 my-8 relative">
+        <section id="projects" className="h-screen w-full flex flex-col items-center p-4 my-8 relative">
             <motion.h1
                 ref={ref1}
                 className="text-[8vw] md:text-[4vw] font-bold text-white"
@@ -60,7 +60,7 @@ const Projects = () => {
                 )}
                 <div 
                     ref={scrollRef} 
-                    className="flex space-x-4 overflow-x-auto scrollbar-hide w-full px-4 py-2 snap-x snap-mandatory"
+                    className="flex mb-8 space-x-4 overflow-x-auto scrollbar-hide w-full px-4 py-2 snap-x snap-mandatory"
                     style={{ scrollBehavior: 'smooth' }}
                 >
                     {projectsData.map((project) => (
