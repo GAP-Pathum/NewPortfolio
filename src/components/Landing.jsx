@@ -1,5 +1,6 @@
 import React from 'react';
 import profimg from '../assets/profile.png';
+import prof1 from '../assets/prof1.png';
 import { motion } from 'framer-motion';
 import Typewriter from 'typewriter-effect';
 import { FaGithub, FaLinkedin, FaInstagram, FaBehance, FaTwitter } from 'react-icons/fa';
@@ -28,9 +29,11 @@ function Landing({ scrollToMyself }) {
                 transition={{ duration: 0.5 }}
             >
                 <img
-                    className="w-full h-full object-cover rounded-full hover:scale-105"
+                    className="w-full h-full object-cover rounded-full hover:scale-105 transition-transform duration-300"
                     src={profimg}
                     alt="profile"
+                    onMouseEnter={(e) => e.currentTarget.src = prof1}
+                    onMouseLeave={(e) => e.currentTarget.src = profimg}
                 />
             </motion.div>
             <motion.h2

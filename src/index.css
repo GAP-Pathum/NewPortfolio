@@ -12,12 +12,15 @@
   }
 
   .button-primary span {
-    @apply relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-full group-hover:bg-opacity-0;
+    @apply relative px-5 py-2.5 transition-all ease-in duration-75 rounded-full group-hover:bg-opacity-0;
   }
 }
 
-
-
+@layer utilities {
+  .bg-gradient-to-br {
+    background-image: linear-gradient(to bottom right, var(--tw-gradient-stops));
+  }
+}
 
 *{
   padding: 0;
