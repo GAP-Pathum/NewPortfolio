@@ -60,7 +60,7 @@ const Projects = () => {
                 )}
                 <div 
                     ref={scrollRef} 
-                    className="flex mb-8 space-x-4 overflow-x-auto scrollbar-hide w-full px-4 py-2 snap-x snap-mandatory"
+                    className="flex space-x-4 overflow-x-auto scrollbar-hide w-full px-4 py-2 snap-x snap-mandatory"
                     style={{ scrollBehavior: 'smooth' }}
                 >
                     {projectsData.map((project) => (
@@ -90,6 +90,11 @@ const Projects = () => {
                         <ChevronRight size={24} />
                     </button>
                 )}
+            </div>
+            <div className="mt-8 text-center max-w-4xl mx-auto text-white">
+                <p className="text-lg">
+                    Here are some of the projects I have worked on. My stack includes technologies like React, Node.js, Express, MongoDB, and more. I enjoy building full-stack applications and continuously learning new tools and frameworks to enhance my skills.
+                </p>
             </div>
         </section>
     );
