@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import emailjs from 'emailjs-com';
-import { FaGithub, FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaBlogger, FaStackOverflow, FaWhatsapp } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaFacebook, FaInstagram, FaYoutube, FaBlogger, FaStackOverflow, FaWhatsapp, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa';
 
 const fadeInVariants = {
     hidden: { y: 50, opacity: 0 },
@@ -131,15 +131,21 @@ const Contact = () => {
                     variants={fadeInVariants}
                     transition={{ duration: 0.5, delay: 0.3 }}
                 >
-                    <a href="mailto:pathumpasindu41@gmail.com" className="text-white text-lg font-medium">pathumpasindu41@gmail.com</a>
-                    <p className="text-white text-lg font-medium">+94 752 955 301</p>
-                    <p className="text-white text-lg font-medium">Ragala, Sri Lanka</p>
+                    <a href="mailto:pathumpasindu41@gmail.com" className="text-white text-lg font-medium flex items-center gap-2">
+                        <FaEnvelope className="w-6 h-6" /> pathumpasindu41@gmail.com
+                    </a>
+                    <a href="tel:+94752955301" className="text-white text-lg font-medium flex items-center gap-2">
+                        <FaPhone className="w-6 h-6" /> +94 752 955 301
+                    </a>
+                    <p className="text-white text-lg font-medium flex items-center gap-2">
+                        <FaMapMarkerAlt className="w-6 h-6" /> Ragala, Sri Lanka
+                    </p>
 
                     <div className="flex gap-6 justify-start mt-4 flex-wrap">
                         <a href="https://github.com/GAP-Pathum" className="text-white hover:text-blue-400" aria-label="GitHub">
                             <FaGithub className="w-8 h-8" />
                         </a>
-                        <a href="https://www.linkedin.com/in/pasindu-pathum-98a299249/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-white hover:text-blue-400" aria-label="GitHub">
+                        <a href="https://www.linkedin.com/in/pasindu-pathum-98a299249/?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" className="text-white hover:text-blue-400" aria-label="LinkedIn">
                             <FaLinkedin className="w-8 h-8" />
                         </a>
                         <a href="https://www.facebook.com/share/1XaLVXKiqm/" className="text-white hover:text-blue-400" aria-label="Facebook">
