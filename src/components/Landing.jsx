@@ -1,9 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import profimg from '../assets/profile.png';
 import prof1 from '../assets/prof1.png';
 import face from '../assets/face.png';
 import face2 from '../assets/face2.png';
+import helloworld from '../assets/helloworld.wav'
 
 function Landing({ scrollToMyself }) {
     const [activeFace, setActiveFace] = useState('face2'); // 'face2' or 'face'
@@ -11,6 +12,63 @@ function Landing({ scrollToMyself }) {
     const [showLightning, setShowLightning] = useState(false);
     const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
     const [profileImg, setProfileImg] = useState(profimg);
+    const audioRef = useRef(null);
+    
+    // Try to autoplay the imported wav file (best-effort).
+    // Note: modern browsers may block audible autoplay. We attempt multiple strategies:
+    // 1) normal play, 2) muted play then unmute attempt.
+    useEffect(() => {
+        let mounted = true;
+        async function tryPlay() {
+            try {
+                const audio = new Audio(helloworld);
+                audioRef.current = audio;
+                audio.volume = 0.6;
+                audio.autoplay = true;
+                audio.playsInline = true;
+
+                // Attempt normal playback first
+                try {
+                    await audio.play();
+                    // played successfully
+                    return;
+                } catch (err) {
+                    console.warn('Autoplay attempt failed, trying muted playback fallback:', err);
+                }
+
+                // Try muted playback (many browsers allow muted autoplay)
+                try {
+                    audio.muted = true;
+                    await audio.play();
+                    // If muted play succeeds, attempt to unmute after a short delay (best-effort)
+                    setTimeout(async () => {
+                        try {
+                            audio.muted = false;
+                            // try to resume audible playback
+                            await audio.play();
+                        } catch (unmuteErr) {
+                            // Unmute might be blocked by policy; keep playing muted as fallback
+                            console.warn('Unmute attempt failed:', unmuteErr);
+                        }
+                    }, 500);
+                } catch (mutedErr) {
+                    console.warn('Muted autoplay also failed:', mutedErr);
+                }
+            } catch (err) {
+                console.warn('Audio initialization failed:', err);
+            }
+        }
+
+        tryPlay();
+
+        return () => {
+            mounted = false;
+            if (audioRef.current) {
+                try { audioRef.current.pause(); } catch (e) {}
+                audioRef.current = null;
+            }
+        };
+    }, []);
 
     // Random transition between faces
     useEffect(() => {
@@ -185,6 +243,8 @@ function Landing({ scrollToMyself }) {
                     </AnimatePresence>
                 </div>
 
+                {/* Autoplay attempted on mount; no manual play button per request */}
+
                 {/* Profile Image */}
                 <motion.div
                     className="p-1 mb-6 bg-gradient-to-tr from-pink-500 via-purple-600 to-indigo-700 rounded-full w-48 h-48 overflow-hidden hover:shadow-[0_0_15px_6px_rgba(128,90,213,0.7),0_0_25px_10px_rgba(59,130,246,0.7)] transition-shadow duration-300"
@@ -202,33 +262,86 @@ function Landing({ scrollToMyself }) {
                     />
                 </motion.div>
 
-                {/* Text Content */}
-                <motion.h1
-                    className="text-white text-center text-2xl font-bold"
-                    initial={{ y: -50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                >
-                    Hello World!
-                </motion.h1>
 
-                <motion.h2
-                    className="text-white text-center text-2xl font-bold mt-4"
-                    initial={{ y: -50, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 0.5 }}
-                >
-                    I'm G.A.P. Pathum
-                </motion.h2>
+                {/*
+                                  Typing animation for the three lines below.
+                                  Uses existing useState/useEffect imports above.
+                                */}
+                {(() => {
+                    const lines = ["Hello World!", "I'm G.A.P. Pathum", "Full Stack Developer"];
+                    const [displayedLines, setDisplayedLines] = useState(['', '', '']);
+                    const [currentLine, setCurrentLine] = useState(0);
+                    const [showCursor, setShowCursor] = useState(true);
 
-                <motion.div
-                    className="text-white text-center text-xl font-medium mt-2"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.5, delay: 1 }}
-                >
-                    <div className="h-8">Full Stack Developer</div>
-                </motion.div>
+                    // Typing effect
+                    useEffect(() => {
+                        let timeout;
+                        // if all lines done, stop
+                        if (currentLine >= lines.length) return;
+                        const target = lines[currentLine];
+                        const current = displayedLines[currentLine] || '';
+
+                        if (current.length < target.length) {
+                            // type next char
+                            timeout = setTimeout(() => {
+                                setDisplayedLines(prev => {
+                                    const copy = [...prev];
+                                    copy[currentLine] = current + target[current.length];
+                                    return copy;
+                                });
+                            }, 70 + Math.random() * 80); // slight randomness
+                        } else {
+                            // finished this line, pause then move to next
+                            timeout = setTimeout(() => setCurrentLine(c => c + 1), 600);
+                        }
+
+                        return () => clearTimeout(timeout);
+                        // eslint-disable-next-line react-hooks/exhaustive-deps
+                    }, [displayedLines, currentLine]);
+
+                    // Cursor blink
+                    useEffect(() => {
+                        const iv = setInterval(() => setShowCursor(s => !s), 500);
+                        return () => clearInterval(iv);
+                    }, []);
+
+                    // Ensure we don't re-run the above IIFE logic on every render by returning JSX
+                    return (
+                        <>
+                            <motion.h1
+                                className="text-white text-center text-2xl font-bold"
+                                initial={{ y: -50, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 0.5 }}
+                            >
+                                {displayedLines[0]}
+                                {currentLine === 0 && <span style={{ opacity: showCursor ? 1 : 0 }}>|</span>}
+                            </motion.h1>
+
+                            <motion.h2
+                                className="text-white text-center text-2xl font-bold mt-4"
+                                initial={{ y: -50, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 0.5 }}
+                            >
+                                {displayedLines[1]}
+                                {currentLine === 1 && <span style={{ opacity: showCursor ? 1 : 0 }}>|</span>}
+                            </motion.h2>
+
+                            <motion.div
+                                className="text-white text-center text-xl font-medium mt-2"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                transition={{ duration: 0.5, delay: 1 }}
+                            >
+                                <div className="h-8">
+                                    {displayedLines[2]}
+                                    {currentLine === 2 && <span style={{ opacity: showCursor ? 1 : 0 }}>|</span>}
+                                </div>
+                            </motion.div>
+                        </>
+                    );
+                })()}
 
                 {/* Social Icons */}
                 <motion.div

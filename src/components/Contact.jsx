@@ -20,7 +20,7 @@ const Contact = () => {
 
         emailjs
             .sendForm(
-            'service_bmz6kns', 
+            'service_bmz6kns',
             'template_irsfppu',
             e.target,
             'IPYLmr56gm3jq8OZq' // Add your user token here
@@ -28,13 +28,43 @@ const Contact = () => {
             .then(
             (result) => {
                 console.log('Email sent successfully:', result.text);
-                setFormStatus("🎉 Your message has been sent successfully! Thank you for reaching out. I'll get back to you soon.");
-                showPopup("🎉 Your message has been sent successfully! Thank you for reaching out. I'll get back to you soon.", "success");
+                const successMessage = "🎉 Your message has been sent successfully! Thank you for reaching out. I'll get back to you soon.";
+                setFormStatus(successMessage);
+
+                // Use react-toastify if available, otherwise fall back to existing popup
+                try {
+                // Assumes `toast` is imported from 'react-toastify' and <ToastContainer /> is mounted in the app
+                toast.success(successMessage, {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+                } catch (err) {
+                showPopup(successMessage, "success");
+                }
             },
             (error) => {
                 console.error('Error sending email:', error.text);
-                setFormStatus("🚫 Oops! Something went wrong. Please try again later.");
-                showPopup("🚫 Oops! Something went wrong. Please try again later.", "error");
+                const errorMessage = "🚫 Oops! Something went wrong. Please try again later.";
+                setFormStatus(errorMessage);
+
+                try {
+                toast.error(errorMessage, {
+                    position: "top-right",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    progress: undefined,
+                });
+                } catch (err) {
+                showPopup(errorMessage, "error");
+                }
             }
             );
 
@@ -109,12 +139,40 @@ const Contact = () => {
                         placeholder="Write your message"
                     ></textarea>
 
-                    <button
-                        type="submit"
-                        className="button-primary"
-                    >
-                        <span>Send</span>
-                    </button>
+                    <div className="group relative w-full">
+                        <button
+                            type="submit"
+                            className="relative z-10 w-full flex items-center justify-center px-8 py-3 rounded-xl text-white/80 font-medium transform transition duration-300 hover:scale-105 focus:outline-none focus-visible:ring-4 focus-visible:ring-purple-400/30
+                                                                   bg-black/30 backdrop-blur-sm border border-white/10"
+                            aria-label="Send Message"
+                            style={{
+                                boxShadow: '0 8px 30px rgba(99,102,241,0.08)'
+                            }}
+                        >
+                            {/* subtle glowing gradient that expands on hover */}
+                            <span
+                                className="absolute inset-0 rounded-xl transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 pointer-events-none"
+                                style={{
+                                    background: 'linear-gradient(90deg, rgba(236,72,153,0.18), rgba(168,85,247,0.18), rgba(59,130,246,0.12))',
+                                    filter: 'blur(10px)',
+                                    opacity: 0.95
+                                }}
+                            />
+                            <span className="absolute inset-0 rounded-xl bg-white/5 pointer-events-none" />
+                            <span className="relative z-20 flex items-center justify-center gap-2 text-white/70 group-hover:text-white transition-colors duration-300">
+                                Send
+                            </span>
+                        </button>
+
+                        {/* outer glow ring (animated on hover) */}
+                        <span
+                            className="pointer-events-none absolute -inset-1 rounded-xl transition-all duration-500 opacity-0 group-hover:opacity-100"
+                            style={{
+                                boxShadow: '0 0 40px rgba(168,85,247,0.22), 0 0 80px rgba(99,102,241,0.12)',
+                                filter: 'blur(8px)'
+                            }}
+                        />
+                    </div>
 
                     {/* Form Status Message */}
                     {formStatus && (
